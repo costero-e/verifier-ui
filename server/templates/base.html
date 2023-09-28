@@ -14,14 +14,13 @@
     <script src="media/tablesorter.js"></script>
     <script src="media/arrows.js"></script>
   </head>
-<body style="background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(24,55,119,0.11250437675070024) 0%, rgba(24,55,119,0.11250437675070024) 27%, rgba(24,81,119,1) 95%);">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary border border-dark border-top-0 border-start-0 border-end-0">
+<body>
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <span class="navbar-text ">
             <img src="media/logo.png" alt="EGA" height="70px">
           </span>
-          <a class="navbar-brand " href="/"><h1 class="bi bi-patch-check display-6 mx-auto p-2 fw-bold ms-5" style="color: #185177;">Beacon Verifier</h1></a>
+          <a class="navbar-brand " href="/"><h1 class="bi bi-patch-check display-6 mx-auto p-2 fw-bold ms-5" style="color: #239B56;">Beacon Verifier</h1></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -30,15 +29,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(24,55,119,0.112504376
 
           </div>
         </div>
-        {% if user.is_authenticated %}
-  <p class="welcome">Current user: <b>{{ user.email }}</b></p>
-  <form action="{% url 'oidc_logout' %}" method="post">
-    {% csrf_token %}
-    <input class="kcbutton" type="submit" value="Logout">
-  </form>
-{% else %}
-  <a href="{% url 'oidc_authentication_init' %}"><button class="kcbutton">Login</button></a>
-{% endif %}
+
       </nav>
       
       <div class="container pt-3 " style="font-size: 14px; "> 
@@ -47,7 +38,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(24,55,119,0.112504376
             <div class="row">
 
             <div class="col-3" style="display: inline">
-              <button class="btn btn-primary mb-3 bi bi-search ms-2" style="width: 120px; background-color: #185177; height: 45px; border-color: #185177"> Query</button>
+          
 
               <div class="row">
                 <div class="col">
@@ -61,7 +52,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(24,55,119,0.112504376
               </div>
               <div class="row">
                   <div class="col-5">
-                    <button type="submit" class="btn btn-warning mb-3">Search</button>    
+                    <button type="submit" class="btn btn-success mb-3">Search</button>    
                   </div>
                   <div class="col-6">
                     <a href="/" type="submit" class="btn btn-secondary">Reset</a>
@@ -78,9 +69,8 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(24,55,119,0.112504376
                 
             </div>  
             <div class="col">
-              <button class="btn btn-primary mb-3 bi bi-table ms-2" style="width: 120px; background-color: #185177; height: 45px; border-color: #185177"> Results</button>
               <div id="missatge" style="display: none;">
-                <button class="btn btn-primary" type="button" disabled>
+                <button class="btn btn-success" type="button" disabled>
                   <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                   Verifying your {{url_link}} beacon ...
                 </button>

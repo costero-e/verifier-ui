@@ -243,15 +243,15 @@ table {
   padding: 10px 0;
   box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
   transition: 0.4s;
-  color: rgb(85, 106, 224);
+  color: #239B56;
   background-color: rgba(255, 255, 255, 1);
-  border: 1px solid rgb(85, 103, 224);
+  border: 1px solid #239B56;
 }
 
 .kcbutton:hover {
   color: white;
-  box-shadow: 0 0 20px rgba(85, 103, 224, 0.6);
-  background-color: rgba(85, 103, 224, 1);
+  box-shadow: 0 0 20px rgba(2, 45, 2, 0.6);
+  background-color: #239B56;
 }
 .welcome{
   margin-top: 15px;

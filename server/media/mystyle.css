@@ -157,7 +157,7 @@ table {
   font-family: sans-serif;
   font-size: 0.8rem;
   display: block;
-  height: 250px;
+  height: 500px;
   overflow-y: scroll;
 }
 
@@ -256,3 +256,12 @@ table {
 .welcome{
   margin-top: 15px;
 }
+
+.valid {
+  color: green;
+}
+
+.notvalid{
+  color: red;
+}
+

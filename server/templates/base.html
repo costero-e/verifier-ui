@@ -72,12 +72,64 @@
               <div id="missatge" style="display: none;">
                 <button class="btn btn-success" type="button" disabled>
                   <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                  Verifying your {{url_link}} beacon ...
+                  Verifying your beacon ...
                 </button>
             </div>
               {% if bash_out %}
+              
+                {% for key, value in bash_out.items %}
+                {% if key == 'name' %}
+                <p><b>Beacon name:</b> {{value}}</p>
+                {% elif key == 'url' %}
+                <p><b>Beacon URL:</b> <a href="{{value}}">{{value}}</a></p>
+                {% elif key == 'last_updated' %}
+                <p><b>Beacon last updated:</b> {{value}}</p>
 
-              {{bash_out}}
+          {% endif %}
+          {% endfor %}
+
+
+          <table id="EGAtable">
+            <tr>
+              <th scope="col" id="header" onclick="sortTable(0); classToggle()" class="bi bi-caret-down-fill">Entity</th>
+              <th scope="col" id="header2" onclick="sortTable(1); classToggle2()" class="bi bi-caret-down-fill">Name</th>
+              <th scope="col" id="header" onclick="sortTable(0); classToggle()" class="bi bi-caret-down-fill">URL</th>
+              <th scope="col" id="header2" onclick="sortTable(1); classToggle2()" class="bi bi-caret-down-fill">Valid</th>
+              <th scope="col" id="header2" onclick="sortTable(1); classToggle2()" class="bi bi-caret-down-fill">Error</th>
+
+            </tr>
+            {% for key, value in bash_out.items %}
+            {% if key == 'entities' %}
+            {% for k, v in value.items %}
+            {% for item in v %}
+            
+            <tr>
+              <td>{{k}}</a></td>
+              {% for k1, v1 in item.items %}
+
+              {% if v1 == True %}
+              <td class="valid bi bi-check-circle" style="color: green">{{v1}}</td>
+              {% elif v1 == False %}
+              <td class="notvalid bi bi-x-circle" style="color: red">{{v1}}</td>
+              {% elif k1 == 'url' %}
+              <td><a href="{{v1}}">{{v1}}</a></td>
+              {% else %}
+              <td>{{v1}}</td>
+              {% endif %}
+            {% endfor %}
+            </tr>
+            {% endfor %}
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            
+
+        
+      </table>
+
+
+
+
 
                 {% endif %}
 

@@ -11,7 +11,7 @@ services:
   server:
     build:
       context: ./server
-    container_name: angelweb_server
+    container_name: verifier_ui
     command: [ "bash", "start.sh" ]
     ports:
       - 8003:8000

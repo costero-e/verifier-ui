@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 
 ENV PATH="/root/.cargo/bin:${PATH}"
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-RUN cargo install beacon-verifier
+RUN cargo install --git https://github.com/EGA-archive/beacon-verifier
